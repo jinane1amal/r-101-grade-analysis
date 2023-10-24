@@ -13,3 +13,9 @@ library(tidyr)
 library(ggplot2)
 ```
 
+#Question 1 
+```{r}
+#| message: false 
+Grades <- vroom (here("grades.csv"))
+```
+
