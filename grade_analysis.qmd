@@ -96,4 +96,14 @@ plot2 <- ggplotGrob(histogram)
 gridExtra::grid.arrange(plot1, plot2, ncol = 2)
 
 ```
+# Question 8
+```{r}
+
+missed_exam_counts <- Grades|>
+  group_by(Group) |>
+  summarize(Num_Missed_Exam = sum(is.na(Exam)))
+
+missed_exam_counts
+
+```
 
