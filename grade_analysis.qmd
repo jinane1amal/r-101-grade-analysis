@@ -66,4 +66,34 @@ group_bar_plot <- ggplot(group_counts, aes(x = Group, y = Count)) +
 print(group_bar_plot)
 
 ```
+# Question 7 
+```{r}
+
+boxplot <- Grades |>
+  ggplot(aes(x = Group, y = Exam)) +
+  geom_boxplot() +
+  labs(
+    title = "Distribution of Exam Grades by Group (Box Plots)",
+    x = "Group",
+    y = "Exam Grades"
+  ) +
+  theme_minimal()
+
+histogram <- Grades|>
+  ggplot(aes(x = Exam)) +
+  geom_histogram(binwidth = 5, fill = "blue", color = "black") +
+  labs(
+    title = "Distribution of Exam Grades by Group (Faceted Histograms)",
+    x = "Exam Grades",
+    y = "Frequency"
+  ) +
+  facet_wrap(~Group) +
+  theme_minimal()
+
+plot1 <- ggplotGrob(boxplot)
+plot2 <- ggplotGrob(histogram)
+
+gridExtra::grid.arrange(plot1, plot2, ncol = 2)
+
+```
 
