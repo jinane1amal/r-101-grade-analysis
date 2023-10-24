@@ -39,4 +39,13 @@ There are `r num_students_did_not_take_exam` students who did not take the exam
 ggplot(Grades,aes(x=Exam)) + geom_bar()
 
 ```
+# Question 5
+```{r}
+Grades |> 
+  group_by(Group)|>
+  summarise(Total= n())|>
+  knitr::kable()
 
+```
+
+# Question 6
