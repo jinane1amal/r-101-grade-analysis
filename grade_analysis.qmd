@@ -13,9 +13,16 @@ library(tidyr)
 library(ggplot2)
 ```
 
-#Question 1 
+# Question 1 
 ```{r}
 #| message: false 
 Grades <- vroom (here("grades.csv"))
 ```
+# Question 2
+```{r}
+Grades|>
+  summary(mean=mean(Exam,na.rm=TRUE), min=min(Exam,na.rm=TRUE), max=max(Exam,na.rm=TRUE),median=median(Exam,na.rm=TRUE)) |>
+  knitr::kable()
 
+```
+# Question 3
