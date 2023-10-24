@@ -33,4 +33,10 @@ num_students_did_not_take_exam <- Grades |> summarize(num_students_did_not_take_
 
 There are `r num_students_did_not_take_exam` students who did not take the exam
 
+# Question 4
+
+```{r}
+ggplot(Grades,aes(x=Exam)) + geom_bar()
+
+```
 
