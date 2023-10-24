@@ -26,3 +26,11 @@ Grades|>
 
 ```
 # Question 3
+
+```{r}
+num_students_did_not_take_exam <- Grades |> summarize(num_students_did_not_take_exam = sum(is.na(Exam)))
+```
+
+There are `r num_students_did_not_take_exam` students who did not take the exam
+
+
