@@ -1,0 +1,15 @@
+---
+title: "grade_analysis"
+author: "by Jinane Amal"
+format: html
+---
+```{r}
+#| message: false 
+here::i_am("grade_analysis.Rproj")
+library(here)
+library(vroom)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
