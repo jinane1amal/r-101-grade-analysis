@@ -49,3 +49,21 @@ Grades |>
 ```
 
 # Question 6
+```{r}
+
+group_counts <- Grades |>
+  group_by(Group)|>
+  summarize(Count = n())
+
+group_bar_plot <- ggplot(group_counts, aes(x = Group, y = Count)) +
+  geom_bar(stat = "identity", fill = "blue") +
+  labs(
+    title = "Number of Students in Each Group",
+    x = "Group",
+    y = "Number of Students"
+  ) +
+  theme_minimal()
+print(group_bar_plot)
+
+```
+
