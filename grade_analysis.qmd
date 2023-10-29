@@ -131,3 +131,11 @@ grades_data_long <- Grades |>
                values_to = "value") 
 ```
 
+# Question 11
+```{r}
+grades_data_long |>
+  group_by(Id)|>
+  summarize(missing_grades = sum(is.na(value)))
+
+```
+
