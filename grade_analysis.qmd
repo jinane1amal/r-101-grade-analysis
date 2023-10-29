@@ -107,4 +107,24 @@ missed_exam_counts
 
 ```
 
+# Question 9
+```{r}
 
+
+missed_exam_counts <- missed_exam_counts |>
+  arrange(Group)  
+bar_chart <- ggplot(missed_exam_counts, aes(x = Group, y = Num_Missed_Exam)) +
+  geom_col(fill = "blue") +
+  labs(
+    title = "Number of Students Who Missed the Exam by Group",
+    x = "Group",
+    y = "Number of Students"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+print(bar_chart)
+
+```
+
+#
