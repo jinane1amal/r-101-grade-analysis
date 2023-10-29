@@ -109,8 +109,6 @@ missed_exam_counts
 
 # Question 9
 ```{r}
-
-
 missed_exam_counts <- missed_exam_counts |>
   arrange(Group)  
 bar_chart <- ggplot(missed_exam_counts, aes(x = Group, y = Num_Missed_Exam)) +
@@ -122,9 +120,7 @@ bar_chart <- ggplot(missed_exam_counts, aes(x = Group, y = Num_Missed_Exam)) +
   ) +
   theme_minimal() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-
 print(bar_chart)
-
 ```
 
 #
