@@ -133,9 +133,23 @@ grades_data_long <- Grades |>
 
 # Question 11
 ```{r}
-grades_data_long |>
+missing_grades_summary <- grades_data_long |>
   group_by(Id)|>
-  summarize(missing_grades = sum(is.na(value)))
+  summarize(missing_grades = sum(is.na(value)))|>
+  ungroup()     
+missing_grades_summary
+```
+# Question 12 
+
+```{r}
+missing_grades_summary |>
+  ggplot(aes(x = factor(Id), y = missing_grades)) +
+  geom_bar(stat = "identity", width = 0.6) +
+  geom_text(aes(label = missing_grades), vjust = -0.5) +
+  labs(x = "Student ID", y = "Number of Missing Grades") +
+  ggtitle("Distribution of Missing Grades per Student ID") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  
 
 ```
+
 
