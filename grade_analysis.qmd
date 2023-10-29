@@ -123,4 +123,11 @@ bar_chart <- ggplot(missed_exam_counts, aes(x = Group, y = Num_Missed_Exam)) +
 print(bar_chart)
 ```
 
-#
+# Question 10
+```{r}
+grades_data_long <- Grades |>
+  pivot_longer(cols = -c(Id, Group),
+               names_to = "variable",  
+               values_to = "value") 
+```
+
