@@ -11,6 +11,8 @@ library(vroom)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(stringr)
+
 ```
 
 # Question 1 
@@ -152,4 +154,14 @@ missing_grades_summary |>
 
 ```
 
+# Question 13
+```{r}
+students_missed_exam <- grades_data_long |>
+  filter(is.na(value) , str_starts(Group, "grp_1")) |>
+  group_by(Group) |>
+  summarise(num_students_missed_exam = n()) |>
+  ungroup()
+students_missed_exam
+
+```
 
