@@ -206,3 +206,26 @@ missed_table <- Grades |>
 missed_table
 ```
 
+# Question 17
+
+```{r}
+group_missed_table <- grades_data|>
+  group_by(Group)|>
+  summarise(P_missed = pmin((sum(is.na(c_across(starts_with("MCQ_"))) > 0) / n()) * 100, 100))
+group_missed_table
+```
+
+# Question 18 
+```{r}
+average_exam_grades <- Grades|>
+  group_by(Group)|>
+  summarise(Avg_Exam_Grade = mean(Exam, na.rm = TRUE))
+combined_data <- inner_join(group_missed_table, average_exam_grades, by = "Group")
+combined_data|>
+  ggplot(aes(x = P_missed, y = Avg_Exam_Grade)) +
+  geom_point() +
+  labs(x = "Percentage of Missed MCQ Grades", y = "Average Exam Grade") +
+  ggtitle("Average Exam Grade vs. Percentage of Missed MCQ Grades")
+
+```
+
