@@ -174,3 +174,35 @@ missing_online_test_grades <- grades_data_long |>
 missing_online_test_grades
 ```
 
+# Question 15 Option 1
+```{r}
+grades_data <- Grades |>
+  rowwise() |>
+  mutate(missing_online_test_count = sum(c_across(starts_with("Online_MCQ_")))) %>%
+  ungroup()
+grades_data |>
+  ggplot(aes(x = Exam, fill = factor(missing_online_test_count))) +
+  geom_histogram(binwidth = 5) +
+  labs(x = "Exam Grade", y = "Frequency") +
+  ggtitle("Distribution of Exam Grades Conditioned by Missing Online Test Grades")
+```
+
+# Question 15 Option 2
+```{r}
+grades_data_conditional <- grades_data |>
+  left_join(missing_online_test_grades, by = "Id")
+grades_data_conditional |>
+  ggplot(aes(x = Exam, fill = factor(missing_count))) +
+  geom_histogram(binwidth = 5) +
+  labs(x = "Exam Grade", y = "Frequency") +
+  ggtitle("Distribution of Exam Grades Conditioned by Missing Online Test Grades")
+```
+
+# Question 16 
+```{r}
+missed_table <- Grades |>
+  group_by(Id)|>
+  summarise(Missed = any(is.na(c_across(starts_with("MCQ_")))))
+missed_table
+```
+
