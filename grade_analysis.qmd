@@ -164,4 +164,13 @@ students_missed_exam <- grades_data_long |>
 students_missed_exam
 
 ```
+# Question 14 
+```{r}
+missing_online_test_grades <- grades_data_long |>
+  filter(is.na(value) & grepl("Online_MCQ_", variable))|> 
+  group_by(Id) |>                                           
+  summarise(missing_count = sum(is.na(value))) |>
+  ungroup()
+missing_online_test_grades
+```
 
